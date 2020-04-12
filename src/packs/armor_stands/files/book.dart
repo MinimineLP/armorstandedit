@@ -3,6 +3,7 @@ import 'package:objd/core.dart';
 import 'book_pages/pose.dart';
 import 'book_pages/position.dart';
 import 'book_pages/settings.dart';
+import 'book_pages/sots.dart';
 import 'book_pages/start.dart';
 import 'book_pages/target_tools.dart';
 
@@ -23,6 +24,7 @@ class BookFile extends Widget {
         settings_page,
         pose_page,
         position_page,
+        slots_page,
         
       ], author: "Minimine4", count: 1, title: "Armor Stand Editor", name: TextComponent("Armor Stand Editor", color: Color.LightPurple, italic: false)))
     ]);

@@ -31,8 +31,12 @@ BookPage start_page = BookPage([
     TextComponent("Move the armor stand", color: Color.Gray, italic: true)
   ]), clickEvent: TextClickEvent.change_page(5)),
 
-  
-  TextComponent("     ", color: Color.DarkAqua),
+  TextComponent("|            ", color: Color.White),
+
+  TextComponent("Slots", color: Color.DarkBlue, hoverEvent: TextHoverEvent.text([
+    TextComponent("Place Items in ArmorStand slots that are normally non-accessable", color: Color.Gray, italic: true)
+  ]), clickEvent: TextClickEvent.change_page(6)),
+
   TextComponent("\n\n\n\n\n\n\n\n\n\n|      ", color: Color.White),
   TextComponent("target tools", color: Color.DarkPurple, hoverEvent: TextHoverEvent.text([
     TextComponent("Target settings for the armorstand", color: Color.Gray, italic: true)

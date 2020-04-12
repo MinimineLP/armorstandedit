@@ -4,6 +4,7 @@ import '../variables.dart';
 import 'book_pages/pose.dart';
 import 'book_pages/position.dart';
 import 'book_pages/settings.dart';
+import 'book_pages/sots.dart';
 import 'book_pages/target_tools.dart';
 import 'get_selected.dart';
 
@@ -44,6 +45,7 @@ class MainFile extends Widget {
           SettingsFunctionality(),
           PoseFunctionality(),
           PositionFunctionality(),
+          SlotsFunctionality(),
 
           // Pose
 
