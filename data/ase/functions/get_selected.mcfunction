@@ -1,0 +1,3 @@
+execute if score @s ase_id matches 1.. run execute as @e[type=minecraft:armor_stand] if score @s ase_id = @p[tag=ase_selected_player] ase_id run tag @s add ase_selected_stand
+execute unless entity @e[type=minecraft:armor_stand,tag=ase_selected_stand] run execute as @e[distance=..5,limit=1,type=minecraft:armor_stand,tag=!ase_disabled,sort=nearest] run tag @s add ase_selected_stand
+execute unless entity @e[type=minecraft:armor_stand,tag=ase_selected_stand] run title @s actionbar [{"text":"No stand found","color":"red"}]
