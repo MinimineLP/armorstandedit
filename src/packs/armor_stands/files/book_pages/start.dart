@@ -18,9 +18,9 @@ BookPage start_page = BookPage([
     TextComponent("General settings of the armor stand", color: Color.Gray, italic: true)
   ]), clickEvent: TextClickEvent.change_page(3)),
 
-  TextComponent("|  ", color: Color.White),
+  TextComponent("|t           ", color: Color.White),
 
-  TextComponent("Pose Adjust", color: Color.DarkBlue, hoverEvent: TextHoverEvent.text([
+  TextComponent("Pose", color: Color.DarkBlue, hoverEvent: TextHoverEvent.text([
     TextComponent("Pose settings of the armor stand", color: Color.Gray, italic: true)
   ]), clickEvent: TextClickEvent.change_page(4)),
 

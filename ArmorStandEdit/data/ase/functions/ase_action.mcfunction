@@ -125,6 +125,12 @@ execute if score @s ase_trigger matches 66 run execute as @e[limit=1,type=minecr
 execute if score @s ase_trigger matches 67 run execute as @e[limit=1,type=minecraft:armor_stand,tag=ase_selected_stand] run execute store result score @s ase_tmp run data get entity @s Pose.RightLeg[2] 1
 execute if score @s ase_trigger matches 67 run execute as @e[limit=1,type=minecraft:armor_stand,tag=ase_selected_stand] run scoreboard players operation @s ase_tmp += @p[tag=ase_selected_player] ase_step
 execute if score @s ase_trigger matches 67 run execute as @e[limit=1,type=minecraft:armor_stand,tag=ase_selected_stand] run execute store result entity @s Pose.RightLeg[2] float 1 run scoreboard players get @s ase_tmp
+execute if score @s ase_trigger matches 68 run execute as @e[limit=1,type=minecraft:armor_stand,tag=ase_selected_stand] run execute store result score @s ase_tmp run data get entity @s Rotation[0] 1
+execute if score @s ase_trigger matches 68 run execute as @e[limit=1,type=minecraft:armor_stand,tag=ase_selected_stand] run scoreboard players operation @s ase_tmp -= @p[tag=ase_selected_player] ase_step
+execute if score @s ase_trigger matches 68 run execute as @e[limit=1,type=minecraft:armor_stand,tag=ase_selected_stand] run execute store result entity @s Rotation[0] float 1 run scoreboard players get @s ase_tmp
+execute if score @s ase_trigger matches 69 run execute as @e[limit=1,type=minecraft:armor_stand,tag=ase_selected_stand] run execute store result score @s ase_tmp run data get entity @s Rotation[0] 1
+execute if score @s ase_trigger matches 69 run execute as @e[limit=1,type=minecraft:armor_stand,tag=ase_selected_stand] run scoreboard players operation @s ase_tmp += @p[tag=ase_selected_player] ase_step
+execute if score @s ase_trigger matches 69 run execute as @e[limit=1,type=minecraft:armor_stand,tag=ase_selected_stand] run execute store result entity @s Rotation[0] float 1 run scoreboard players get @s ase_tmp
 execute if score @s ase_trigger matches 70 run scoreboard players remove @s ase_step 15
 execute if score @s ase_trigger matches 70 run function ase:do_step_checks
 execute if score @s ase_trigger matches 71 run scoreboard players remove @s ase_step 5

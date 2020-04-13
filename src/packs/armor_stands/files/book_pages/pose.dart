@@ -472,6 +472,22 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
+      If(Score.fromSelected("trigger", addNew: false).matches(68), then: [
+        (selected_stand.as() as Execute).run(For.of([
+        tmp.setToResult(Data.get(Entity.Selected(), path: "Rotation[0]").generate(null)),
+          tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
+          Data.fromScore(Entity.Selected(), path: "Rotation[0]", score: tmp, datatype: 'float')
+        ])),
+      ]),
+
+      If(Score.fromSelected("trigger", addNew: false).matches(69), then: [
+        (selected_stand.as() as Execute).run(For.of([
+        tmp.setToResult(Data.get(Entity.Selected(), path: "Rotation[0]").generate(null)),
+          tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
+          Data.fromScore(Entity.Selected(), path: "Rotation[0]", score: tmp, datatype: 'float')
+        ])),
+      ]),
+
       If(Score.fromSelected("trigger", addNew: false).matches(70), then: [
         Score(Entity.Selected(), "step").subtract(15),
         File.execute("do_step_checks", child: For.of([
