@@ -99,6 +99,6 @@ Distributed under the BSD-2-Clause. See `LICENSE` for more information.
 [license-url]: https://github.com/miniminelp/armorstandedit/blob/master/LICENSE
 
 <!-- Others -->
-[open-on-dmanager-image]: https://dmanager.stevertus.com/assets/dManager-button.png
+[open-on-dmanager-image]: http://dmanager.stevertus.com/assets/dManager-button.png
 [open-on-dmanager-link]: https://dmanager.stevertus.com/pack/open/minimine:ase
 [create-issue-url]: https://github.com/MinimineLP/armorstandedit/issues/new/choose 
