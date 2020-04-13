@@ -3,7 +3,7 @@
 [![Issues][issues-shield]][issues-url]
 [![BSD-2-Clause][license-shield]][license-url]
 
-[![Open On DManager](https://dmanager.stevertus.com/assets/dManager-button.png)](https://dmanager.stevertus.com/pack/open/minimine:ase)
+[![Open On DManager][open-on-dmanager-image]][open-on-dmanager-link]
 # ArmorStandEdit
 
 _ArmorStandEdit is an armor stand editor for minecraft to give players that don't have access to commands or dont like to use them access to the world of beautiful armor stand statues_
@@ -48,7 +48,7 @@ The Actual features are
 
 A smooth installation way is using [DManager](https://dmanager.stevertus.com/), the Datapackmanager my [@Stevertus](https://github.com/stevertus). Just install the Datapack using the tool
 
-[![Open On DManager](https://dmanager.stevertus.com/assets/dManager-button.png)](https://dmanager.stevertus.com/pack/open/minimine:ase)
+[![Open On DManager][open-on-dmanager-image]][open-on-dmanager-link]
 
 If you have not installed DManager you can download it on the dmanager website
 
@@ -79,13 +79,16 @@ Contributions are what make the open source community such an amazing place to b
 5. Open a Pull Request
 
 ## Issues & Suggestions
-If you have problems with this Datapack feel free to [open an issue on github](https://github.com/MinimineLP/armorstandedit/issues/new/choose)
+If you have problems with this Datapack feel free to [open an issue on github][create-issue-url]
 
 
 ## License
 
 Distributed under the BSD-2-Clause. See `LICENSE` for more information.
 
+<!-- Variables -->
+
+<!-- Shields -->
 [forks-shield]: https://img.shields.io/github/forks/miniminelp/armorstandedit.svg?style=flat-square
 [forks-url]: https://github.com/miniminelp/armorstandedit/network/members
 [stars-shield]: https://img.shields.io/github/stars/miniminelp/armorstandedit.svg?style=flat-square
@@ -94,3 +97,8 @@ Distributed under the BSD-2-Clause. See `LICENSE` for more information.
 [issues-url]: https://github.com/miniminelp/armorstandedit/issues
 [license-shield]: https://img.shields.io/github/license/miniminelp/armorstandedit.svg?style=flat-square
 [license-url]: https://github.com/miniminelp/armorstandedit/blob/master/LICENSE
+
+<!-- Others -->
+[open-on-dmanager-image]: https://dmanager.stevertus.com/assets/dManager-button.png
+[open-on-dmanager-link]: https://dmanager.stevertus.com/pack/open/minimine:ase
+[create-issue-url]: https://github.com/MinimineLP/armorstandedit/issues/new/choose 
