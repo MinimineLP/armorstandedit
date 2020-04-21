@@ -1,4 +1,7 @@
-
+# dart
 .dart_tool
 pubspec.lock
 .packages
+
+# dist
+ArmorStandEdit
