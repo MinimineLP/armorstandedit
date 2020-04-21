@@ -30,6 +30,10 @@ class MainFile extends Widget {
         ],groupMin: 1, path: "", filename: "get_id", generateIDs: false)
       ]).unless(Condition.score(Score.fromSelected("id").matchesRange(Range(from: 1)))),
 
+      Execute.asat(Entity.Player(), children: [
+        Score.fromSelected("step").set(15)
+      ]).unless(Condition.score(Score.fromSelected("step").matchesRange(Range(from: 1)))),
+
       Execute.asat(Entity.All(scores: [Score.fromSelected("trigger", addNew: false).matchesRange(Range(from: 1))]), children: [
         File.execute("ase_action", child: For.of([
 
@@ -52,7 +56,7 @@ class MainFile extends Widget {
           Tag("ase_selected_player", entity: Entity.Selected(), value: false),
           Tag("ase_selected_stand", entity: Entity(tags: ["ase_selected_stand"]), value: false),
 
-          Score.fromSelected("trigger").set(0)
+          Score.fromSelected("trigger", addNew: false).set(0)
 
         ]))
       ])

@@ -12,7 +12,7 @@ TextClickEvent trigger(int value) {
 }
 
 If onTriggered(int value, List<Widget> then) {
-  return If(Score.fromSelected("trigger", addNew: false).matches(101), then: then);
+  return If(Score.fromSelected("trigger", addNew: false).matches(value), then: then);
 }
 
 class BookFile extends Widget {

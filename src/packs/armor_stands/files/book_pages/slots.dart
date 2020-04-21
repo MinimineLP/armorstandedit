@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:objd/core.dart';
 
 import '../book.dart';
@@ -145,6 +147,16 @@ BookPage slots_page = BookPage([TextComponent(" "),
 class SlotsFunctionality extends Widget {
   @override
   generate(Context context) {
+
+    Score tmp = Score(Entity.Selected(), "tmp");
+    List<String> standnames = [ 
+      "ase_hand_all", "ase_boot_all", "ase_leg_all", "ase_chest_all", "ase_head_all", "ase_offhand_all",
+      "ase_hand_place", "ase_boot_place", "ase_leg_place", "ase_chest_place", "ase_head_place", "ase_offhand_place",
+      "ase_hand_remove", "ase_boot_remove", "ase_leg_remove", "ase_chest_remove", "ase_head_remove", "ase_offhand_remove",
+    ];
+
+    
+
     return For.of([
       onTriggered(101, [
         If(Condition.data(Data.get(selected_stand, path: "HandItems[0].id")), then: [
@@ -194,6 +206,103 @@ class SlotsFunctionality extends Widget {
           ReplaceItem(Entity.Selected(), item: Item(Items.air), slot: Slot.MainHand),
         ])
       ]),
+
+      // Disable slots
+      onTriggered(107, [ Data.merge(selected_stand, nbt: {"DisabledSlots": 0}) ]),
+      onTriggered(108, [ Data.merge(selected_stand, nbt: {"DisabledSlots": 4144959}) ]),
+
+      
+
+      
+
+      Execute().If(Condition.score(Score.fromSelected("trigger", addNew: false).matchesRange(Range(from: 109, to: 144)))).asat(selected_stand).run(
+
+        File.execute( "decode_disabled_slots", child: For.of([
+          
+          tmp.setToResult(Command("data get entity @s DisabledSlots")),
+          For(from: 1, to: 18, step: 1, create: (i) {
+            i=18-i;
+            int n = pow(2, i + 1)-1;
+            return For.of([
+              If(tmp.matchesRange(Range(from: n)), then: [
+                Entity.Selected().addTag(standnames[i]),
+                tmp.subtract(n)
+              ]),
+            ]);
+          })
+
+        ] )),
+
+      ),
+
+      
+      onTriggered(109, [ selected_stand.addTag("ase_head_all") ]),
+      onTriggered(110, [ selected_stand.removeTag("ase_head_all") ]),
+      onTriggered(111, [ selected_stand.addTag("ase_head_place") ]),
+      onTriggered(112, [ selected_stand.removeTag("ase_head_place") ]),
+      onTriggered(113, [ selected_stand.addTag("ase_head_remove") ]),
+      onTriggered(114, [ selected_stand.removeTag("ase_head_remove") ]),
+
+      onTriggered(115, [ selected_stand.addTag("ase_hand_all") ]),
+      onTriggered(116, [ selected_stand.removeTag("ase_hand_all") ]),
+      onTriggered(117, [ selected_stand.addTag("ase_hand_place") ]),
+      onTriggered(118, [ selected_stand.removeTag("ase_hand_place") ]),
+      onTriggered(119, [ selected_stand.addTag("ase_hand_remove") ]),
+      onTriggered(120, [ selected_stand.removeTag("ase_hand_remove") ]),
+
+      onTriggered(121, [ selected_stand.addTag("ase_offhand_all") ]),
+      onTriggered(122, [ selected_stand.removeTag("ase_offhand_all") ]),
+      onTriggered(123, [ selected_stand.addTag("ase_offhand_place") ]),
+      onTriggered(124, [ selected_stand.removeTag("ase_offhand_place") ]),
+      onTriggered(125, [ selected_stand.addTag("ase_offhand_remove") ]),
+      onTriggered(126, [ selected_stand.removeTag("ase_offhand_remove") ]),
+
+      onTriggered(127, [ selected_stand.addTag("ase_chest_all") ]),
+      onTriggered(128, [ selected_stand.removeTag("ase_chest_all") ]),
+      onTriggered(129, [ selected_stand.addTag("ase_chest_place") ]),
+      onTriggered(130, [ selected_stand.removeTag("ase_chest_place") ]),
+      onTriggered(131, [ selected_stand.addTag("ase_chest_remove") ]),
+      onTriggered(132, [ selected_stand.removeTag("ase_chest_remove") ]),
+
+      onTriggered(133, [ selected_stand.addTag("ase_chest_all") ]),
+      onTriggered(134, [ selected_stand.removeTag("ase_chest_all") ]),
+      onTriggered(135, [ selected_stand.addTag("ase_chest_place") ]),
+      onTriggered(136, [ selected_stand.removeTag("ase_chest_place") ]),
+      onTriggered(137, [ selected_stand.addTag("ase_chest_remove") ]),
+      onTriggered(138, [ selected_stand.removeTag("ase_chest_remove") ]),
+
+      onTriggered(133, [ selected_stand.addTag("ase_leg_all") ]),
+      onTriggered(134, [ selected_stand.removeTag("ase_leg_all") ]),
+      onTriggered(135, [ selected_stand.addTag("ase_leg_place") ]),
+      onTriggered(136, [ selected_stand.removeTag("ase_leg_place") ]),
+      onTriggered(137, [ selected_stand.addTag("ase_leg_remove") ]),
+      onTriggered(138, [ selected_stand.removeTag("ase_leg_remove") ]),
+
+      onTriggered(133, [ selected_stand.addTag("ase_boot_all") ]),
+      onTriggered(134, [ selected_stand.removeTag("ase_boot_all") ]),
+      onTriggered(135, [ selected_stand.addTag("ase_boot_place") ]),
+      onTriggered(136, [ selected_stand.removeTag("ase_boot_place") ]),
+      onTriggered(137, [ selected_stand.addTag("ase_boot_remove") ]),
+      onTriggered(138, [ selected_stand.removeTag("ase_boot_remove") ]),
+
+      Execute().If(Condition.score(Score.fromSelected("trigger", addNew: false).matchesRange(Range(from: 109, to: 144)))).asat(selected_stand).run(
+
+        File.execute( "encode_disabled_slots", child: For.of([
+
+          For(from: 1, to: 18, step: 1, create: (i) {
+            i=18-i;
+            int n = pow(2, i + 1)-1;
+            return For.of([
+              If(Condition.tag(Tag(standnames[i], entity: Entity.Selected())),then: [
+                tmp.add(n),
+                Entity.Selected().removeTag(standnames[i]),
+              ])
+            ]);
+          }),
+          Data.fromScore(Entity.Selected(), score: tmp, path: "DisabledSlots")
+        ])),
+
+      )
     ]);
   }
   
