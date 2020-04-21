@@ -158,53 +158,55 @@ class SlotsFunctionality extends Widget {
     
 
     return For.of([
-      onTriggered(101, [
-        If(Condition.data(Data.get(selected_stand, path: "HandItems[0].id")), then: [
-          Title.actionbar(Entity.Selected(), show: [TextComponent("This stand already has something in his Mainhand", color: Color.Red)])
-        ], orElse: [
-          Data.modify(selected_stand, path: "HandItems[0]", modify: DataModify.merge(Entity.Selected(), fromPath: "SelectedItem")),
-          ReplaceItem(Entity.Selected(), item: Item(Items.air), slot: Slot.MainHand),
-        ])
-      ]),
-      onTriggered(102, [
-        If(Condition.data(Data.get(selected_stand, path: "HandItems[1].id")), then: [
-          Title.actionbar(Entity.Selected(), show: [TextComponent("This stand already has something in his Mainhand", color: Color.Red)])
-        ], orElse: [
-          Data.modify(selected_stand, path: "HandItems[1]", modify: DataModify.merge(Entity.Selected(), fromPath: "SelectedItem")),
-          ReplaceItem(Entity.Selected(), item: Item(Items.air), slot: Slot.MainHand),
-        ])
-      ]),
-      onTriggered(103, [
-        If(Condition.data(Data.get(selected_stand, path: "ArmorItems[3].id")), then: [
-          Title.actionbar(Entity.Selected(), show: [TextComponent("This stand already has something in his Mainhand", color: Color.Red)])
-        ], orElse: [
-          Data.modify(selected_stand, path: "ArmorItems[3]", modify: DataModify.merge(Entity.Selected(), fromPath: "SelectedItem")),
-          ReplaceItem(Entity.Selected(), item: Item(Items.air), slot: Slot.MainHand),
-        ])
-      ]),
-      onTriggered(104, [
-        If(Condition.data(Data.get(selected_stand, path: "ArmorItems[2].id")), then: [
-          Title.actionbar(Entity.Selected(), show: [TextComponent("This stand already has something in his Mainhand", color: Color.Red)])
-        ], orElse: [
-          Data.modify(selected_stand, path: "ArmorItems[2]", modify: DataModify.merge(Entity.Selected(), fromPath: "SelectedItem")),
-          ReplaceItem(Entity.Selected(), item: Item(Items.air), slot: Slot.MainHand),
-        ])
-      ]),
-      onTriggered(105, [
-        If(Condition.data(Data.get(selected_stand, path: "ArmorItems[1].id")), then: [
-          Title.actionbar(Entity.Selected(), show: [TextComponent("This stand already has something in his Mainhand", color: Color.Red)])
-        ], orElse: [
-          Data.modify(selected_stand, path: "ArmorItems[1]", modify: DataModify.merge(Entity.Selected(), fromPath: "SelectedItem")),
-          ReplaceItem(Entity.Selected(), item: Item(Items.air), slot: Slot.MainHand),
-        ])
-      ]),
-      onTriggered(106, [
-        If(Condition.data(Data.get(selected_stand, path: "ArmorItems[0].id")), then: [
-          Title.actionbar(Entity.Selected(), show: [TextComponent("This stand already has something in his Mainhand", color: Color.Red)])
-        ], orElse: [
-          Data.modify(selected_stand, path: "ArmorItems[0]", modify: DataModify.merge(Entity.Selected(), fromPath: "SelectedItem")),
-          ReplaceItem(Entity.Selected(), item: Item(Items.air), slot: Slot.MainHand),
-        ])
+      If(Condition.entity(selected_stand), then: [
+        onTriggered(101, [
+          If(Condition.data(Data.get(selected_stand, path: "HandItems[0].id")), then: [
+            Title.actionbar(Entity.Selected(), show: [TextComponent("This stand already has something in his Mainhand", color: Color.Red)])
+          ], orElse: [
+            Data.modify(selected_stand, path: "HandItems[0]", modify: DataModify.merge(Entity.Selected(), fromPath: "SelectedItem")),
+            ReplaceItem(Entity.Selected(), item: Item(Items.air), slot: Slot.MainHand),
+          ])
+        ]),
+        onTriggered(102, [
+          If(Condition.data(Data.get(selected_stand, path: "HandItems[1].id")), then: [
+            Title.actionbar(Entity.Selected(), show: [TextComponent("This stand already has something in his Mainhand", color: Color.Red)])
+          ], orElse: [
+            Data.modify(selected_stand, path: "HandItems[1]", modify: DataModify.merge(Entity.Selected(), fromPath: "SelectedItem")),
+            ReplaceItem(Entity.Selected(), item: Item(Items.air), slot: Slot.MainHand),
+          ])
+        ]),
+        onTriggered(103, [
+          If(Condition.data(Data.get(selected_stand, path: "ArmorItems[3].id")), then: [
+            Title.actionbar(Entity.Selected(), show: [TextComponent("This stand already has something in his Mainhand", color: Color.Red)])
+          ], orElse: [
+            Data.modify(selected_stand, path: "ArmorItems[3]", modify: DataModify.merge(Entity.Selected(), fromPath: "SelectedItem")),
+            ReplaceItem(Entity.Selected(), item: Item(Items.air), slot: Slot.MainHand),
+          ])
+        ]),
+        onTriggered(104, [
+          If(Condition.data(Data.get(selected_stand, path: "ArmorItems[2].id")), then: [
+            Title.actionbar(Entity.Selected(), show: [TextComponent("This stand already has something in his Mainhand", color: Color.Red)])
+          ], orElse: [
+            Data.modify(selected_stand, path: "ArmorItems[2]", modify: DataModify.merge(Entity.Selected(), fromPath: "SelectedItem")),
+            ReplaceItem(Entity.Selected(), item: Item(Items.air), slot: Slot.MainHand),
+          ])
+        ]),
+        onTriggered(105, [
+          If(Condition.data(Data.get(selected_stand, path: "ArmorItems[1].id")), then: [
+            Title.actionbar(Entity.Selected(), show: [TextComponent("This stand already has something in his Mainhand", color: Color.Red)])
+          ], orElse: [
+            Data.modify(selected_stand, path: "ArmorItems[1]", modify: DataModify.merge(Entity.Selected(), fromPath: "SelectedItem")),
+            ReplaceItem(Entity.Selected(), item: Item(Items.air), slot: Slot.MainHand),
+          ])
+        ]),
+        onTriggered(106, [
+          If(Condition.data(Data.get(selected_stand, path: "ArmorItems[0].id")), then: [
+            Title.actionbar(Entity.Selected(), show: [TextComponent("This stand already has something in his Mainhand", color: Color.Red)])
+          ], orElse: [
+            Data.modify(selected_stand, path: "ArmorItems[0]", modify: DataModify.merge(Entity.Selected(), fromPath: "SelectedItem")),
+            ReplaceItem(Entity.Selected(), item: Item(Items.air), slot: Slot.MainHand),
+          ])
+        ]),
       ]),
 
       // Disable slots
