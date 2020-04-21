@@ -41,16 +41,16 @@ class TargetToolsFunctionality extends Widget {
   @override
   Widget generate(Context context) {
     return For.of([
-      If(Score.fromSelected("trigger", addNew: false).matches(10), then: [
+      onTriggered(10, [
         Effect(EffectType.glowing, entity: Entity(tags: ["ase_selected_stand"]), amplifier: 0, duration: 3, showParticles: false)
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(11), then: [
+      onTriggered(11, [
         Effect(EffectType.glowing, entity: selected_stand, amplifier: 0, duration: 3, showParticles: false),
         Score.fromSelected("id").setEqual(Score(selected_stand, "id"))
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(12), then: [
+      onTriggered(12, [
         Score.fromSelected("id").set(0)
       ]),
     ]);

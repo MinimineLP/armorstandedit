@@ -11,6 +11,10 @@ TextClickEvent trigger(int value) {
   return TextClickEvent.run_command(Command("trigger ase_trigger set $value"));
 }
 
+If onTriggered(int value, List<Widget> then) {
+  return If(Score.fromSelected("trigger", addNew: false).matches(101), then: then);
+}
+
 class BookFile extends Widget {
   BookFile();
 

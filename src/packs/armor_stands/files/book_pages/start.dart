@@ -34,7 +34,7 @@ BookPage start_page = BookPage([
   TextComponent("|            ", color: Color.White),
 
   TextComponent("Slots", color: Color.DarkBlue, hoverEvent: TextHoverEvent.text([
-    TextComponent("Place Items in ArmorStand slots that are normally non-accessable", color: Color.Gray, italic: true)
+    TextComponent("Place Items in ArmorStand slots that are normally non-accessable and disable slot-iteraction", color: Color.Gray, italic: true)
   ]), clickEvent: TextClickEvent.change_page(6)),
 
   TextComponent("\n\n\n\n\n\n\n\n\n\n|      ", color: Color.White),

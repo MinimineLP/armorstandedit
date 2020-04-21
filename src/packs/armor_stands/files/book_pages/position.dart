@@ -70,26 +70,26 @@ class PositionFunctionality extends Widget {
   @override
   generate(Context context) {
     return For.of([
-      If(Score.fromSelected("trigger", addNew: false).matches(83), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(x: -0.5)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(84), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(x: -0.25)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(85), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(x: -0.0625)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(86), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(x: 0.0625)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(87), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(x: 0.25)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(88), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(x: 0.5)) ), ]),
+      onTriggered(83, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(x: -0.5)) ), ]),
+      onTriggered(84, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(x: -0.25)) ), ]),
+      onTriggered(85, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(x: -0.0625)) ), ]),
+      onTriggered(86, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(x: 0.0625)) ), ]),
+      onTriggered(87, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(x: 0.25)) ), ]),
+      onTriggered(88, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(x: 0.5)) ), ]),
       
-      If(Score.fromSelected("trigger", addNew: false).matches(89), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(y: -0.5)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(90), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(y: -0.25)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(91), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(y: -0.0625)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(92), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(y: 0.0625)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(93), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(y: 0.25)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(94), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(y: 0.5)) ), ]),
+      onTriggered(89, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(y: -0.5)) ), ]),
+      onTriggered(90, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(y: -0.25)) ), ]),
+      onTriggered(91, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(y: -0.0625)) ), ]),
+      onTriggered(92, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(y: 0.0625)) ), ]),
+      onTriggered(93, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(y: 0.25)) ), ]),
+      onTriggered(94, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(y: 0.5)) ), ]),
       
-      If(Score.fromSelected("trigger", addNew: false).matches(95), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(z: -0.5)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(96), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(z: -0.25)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(97), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(z: -0.0625)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(98), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(z: 0.0625)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(99), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(z: 0.25)) ), ]),
-      If(Score.fromSelected("trigger", addNew: false).matches(100), then: [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(z: 0.5)) ), ]),
+      onTriggered(95, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(z: -0.5)) ), ]),
+      onTriggered(96, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(z: -0.25)) ), ]),
+      onTriggered(97, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(z: -0.0625)) ), ]),
+      onTriggered(98, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(z: 0.0625)) ), ]),
+      onTriggered(99, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(z: 0.25)) ), ]),
+      onTriggered(100, [ (selected_stand.asat() as Execute).run( Tp(Entity.Self(), to: Location.rel(z: 0.5)) ), ]),
     ]);
   }
   

@@ -116,51 +116,51 @@ class SettingsFunctionality extends Widget {
   @override
   generate(Context context) {
     return For.of([
-      If(Score.fromSelected("trigger", addNew: false).matches(20), then: [
+      onTriggered(20, [
         (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"NoGravity": false}))
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(21), then: [
+      onTriggered(21, [
         (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"NoGravity": true}))
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(22), then: [
+      onTriggered(22, [
         (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"Invisible": true}))
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(23), then: [
+      onTriggered(23, [
         (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"Invisible": false}))
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(24), then: [
+      onTriggered(24, [
         (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"CustomNameVisible": true}))
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(25), then: [
+      onTriggered(25, [
         (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"CustomNameVisible": false}))
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(26), then: [
+      onTriggered(26, [
         (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"ShowArms": true}))
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(27), then: [
+      onTriggered(27, [
         (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"ShowArms": false}))
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(28), then: [
+      onTriggered(28, [
         (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"Small": true}))
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(29), then: [
+      onTriggered(29, [
         (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"Small": false}))
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(30), then: [
+      onTriggered(30, [
         (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"NoBasePlate": false}))
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(31), then: [
+      onTriggered(31, [
         (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"NoBasePlate": true}))
       ]),
     ]);

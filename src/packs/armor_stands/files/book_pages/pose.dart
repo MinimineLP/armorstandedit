@@ -174,7 +174,7 @@ class PoseFunctionality extends Widget {
     
     return For.of([
 
-      If(Score.fromSelected("trigger", addNew: false).matches(32), then: [
+      onTriggered(32, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.Head[0]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -182,7 +182,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(33), then: [
+      onTriggered(33, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.Head[0]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -190,7 +190,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(34), then: [
+      onTriggered(34, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.Head[1]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -198,7 +198,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(35), then: [
+      onTriggered(35, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.Head[1]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -206,7 +206,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(36), then: [
+      onTriggered(36, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.Head[2]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -214,7 +214,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(37), then: [
+      onTriggered(37, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.Head[2]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -224,7 +224,7 @@ class PoseFunctionality extends Widget {
 
           
 
-      If(Score.fromSelected("trigger", addNew: false).matches(38), then: [
+      onTriggered(38, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.Body[0]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -232,7 +232,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(39), then: [
+      onTriggered(39, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.Body[0]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -240,7 +240,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(40), then: [
+      onTriggered(40, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.Body[1]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -248,7 +248,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(41), then: [
+      onTriggered(41, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.Body[1]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -256,7 +256,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(42), then: [
+      onTriggered(42, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.Body[2]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -264,7 +264,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(43), then: [
+      onTriggered(43, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.Body[2]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -274,7 +274,7 @@ class PoseFunctionality extends Widget {
 
           
 
-      If(Score.fromSelected("trigger", addNew: false).matches(44), then: [
+      onTriggered(44, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.LeftArm[0]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -282,7 +282,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(45), then: [
+      onTriggered(45, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.LeftArm[0]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -290,7 +290,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(46), then: [
+      onTriggered(46, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.LeftArm[1]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -298,7 +298,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(47), then: [
+      onTriggered(47, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.LeftArm[1]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -306,7 +306,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(48), then: [
+      onTriggered(48, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.LeftArm[2]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -314,7 +314,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(49), then: [
+      onTriggered(49, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.LeftArm[2]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -324,7 +324,7 @@ class PoseFunctionality extends Widget {
 
           
 
-      If(Score.fromSelected("trigger", addNew: false).matches(50), then: [
+      onTriggered(50, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.RightArm[0]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -332,7 +332,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(51), then: [
+      onTriggered(51, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.RightArm[0]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -340,7 +340,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(52), then: [
+      onTriggered(52, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.RightArm[1]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -348,7 +348,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(53), then: [
+      onTriggered(53, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.RightArm[1]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -356,7 +356,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(54), then: [
+      onTriggered(54, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.RightArm[2]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -364,7 +364,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(55), then: [
+      onTriggered(55, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.RightArm[2]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -374,7 +374,7 @@ class PoseFunctionality extends Widget {
 
           
 
-      If(Score.fromSelected("trigger", addNew: false).matches(56), then: [
+      onTriggered(56, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.LeftLeg[0]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -382,7 +382,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(57), then: [
+      onTriggered(57, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.LeftLeg[0]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -390,7 +390,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(58), then: [
+      onTriggered(58, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.LeftLeg[1]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -398,7 +398,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(59), then: [
+      onTriggered(59, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.LeftLeg[1]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -406,7 +406,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(60), then: [
+      onTriggered(60, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.LeftLeg[2]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -414,7 +414,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(61), then: [
+      onTriggered(61, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.LeftLeg[2]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -424,7 +424,7 @@ class PoseFunctionality extends Widget {
 
           
 
-      If(Score.fromSelected("trigger", addNew: false).matches(62), then: [
+      onTriggered(62, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.RightLeg[0]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -432,7 +432,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(63), then: [
+      onTriggered(63, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.RightLeg[0]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -440,7 +440,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(64), then: [
+      onTriggered(64, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.RightLeg[1]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -448,7 +448,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(65), then: [
+      onTriggered(65, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.RightLeg[1]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -456,7 +456,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(66), then: [
+      onTriggered(66, [
         (selected_stand.as() as Execute).run(For.of([
           tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.RightLeg[2]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -464,7 +464,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(67), then: [
+      onTriggered(67, [
         (selected_stand.as() as Execute).run(For.of([
         tmp.setToResult(Data.get(Entity.Selected(), path: "Pose.RightLeg[2]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -472,7 +472,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(68), then: [
+      onTriggered(68, [
         (selected_stand.as() as Execute).run(For.of([
         tmp.setToResult(Data.get(Entity.Selected(), path: "Rotation[0]").generate(null)),
           tmp.subtractScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -480,7 +480,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(69), then: [
+      onTriggered(69, [
         (selected_stand.as() as Execute).run(For.of([
         tmp.setToResult(Data.get(Entity.Selected(), path: "Rotation[0]").generate(null)),
           tmp.addScore(Score(Entity.Player(tags: ["ase_selected_player"]), "step")),
@@ -488,7 +488,7 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(70), then: [
+      onTriggered(70, [
         Score(Entity.Selected(), "step").subtract(15),
         File.execute("do_step_checks", child: For.of([
           If(Condition.score(Score(Entity.Selected(), "step").matchesRange(Range(from: 360))), then: <Widget>[
@@ -501,62 +501,62 @@ class PoseFunctionality extends Widget {
         ])),
       ]),
   
-      If(Score.fromSelected("trigger", addNew: false).matches(71), then: [
+      onTriggered(71, [
         Score(Entity.Selected(), "step").subtract(5),
         File.execute("do_step_checks", create: false)
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(72), then: [
+      onTriggered(72, [
         Score(Entity.Selected(), "step").subtract(1),
         File.execute("do_step_checks", create: false)
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(73), then: [
+      onTriggered(73, [
         Score(Entity.Selected(), "step").add(1),
         File.execute("do_step_checks", create: false)
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(74), then: [
+      onTriggered(74, [
         Score(Entity.Selected(), "step").add(5),
         File.execute("do_step_checks", create: false)
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(75), then: [
+      onTriggered(75, [
         Score(Entity.Selected(), "step").add(15),
         File.execute("do_step_checks", create: false)
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(76), then: [
+      onTriggered(76, [
         Score(Entity.Selected(), "step").set(1),
         Title.actionbar(Entity.Selected(), show: [TextComponent("The step is now "), TextComponent.score(Score.fromSelected("step"))])
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(77), then: [
+      onTriggered(77, [
         Score(Entity.Selected(), "step").set(5),
         Title.actionbar(Entity.Selected(), show: [TextComponent("The step is now "), TextComponent.score(Score.fromSelected("step"))])
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(78), then: [
+      onTriggered(78, [
         Score(Entity.Selected(), "step").set(15),
         Title.actionbar(Entity.Selected(), show: [TextComponent("The step is now "), TextComponent.score(Score.fromSelected("step"))])
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(79), then: [
+      onTriggered(79, [
         Score(Entity.Selected(), "step").set(45),
         Title.actionbar(Entity.Selected(), show: [TextComponent("The step is now "), TextComponent.score(Score.fromSelected("step"))])
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(80), then: [
+      onTriggered(80, [
         Score(Entity.Selected(), "step").set(90),
         Title.actionbar(Entity.Selected(), show: [TextComponent("The step is now "), TextComponent.score(Score.fromSelected("step"))])
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(81), then: [
+      onTriggered(81, [
         Score(Entity.Selected(), "step").set(180),
         Title.actionbar(Entity.Selected(), show: [TextComponent("The step is now "), TextComponent.score(Score.fromSelected("step"))])
       ]),
 
-      If(Score.fromSelected("trigger", addNew: false).matches(82), then: [
+      onTriggered(82, [
         Score(Entity.Selected(), "step").set(270),
         Title.actionbar(Entity.Selected(), show: [TextComponent("The step is now "), TextComponent.score(Score.fromSelected("step"))])
       ]),
