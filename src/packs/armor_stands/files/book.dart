@@ -3,7 +3,7 @@ import 'package:objd/core.dart';
 import 'book_pages/pose.dart';
 import 'book_pages/position.dart';
 import 'book_pages/settings.dart';
-import 'book_pages/sots.dart';
+import 'book_pages/slots.dart';
 import 'book_pages/start.dart';
 import 'book_pages/target_tools.dart';
 
