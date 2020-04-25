@@ -4,4 +4,7 @@ pubspec.lock
 .packages
 
 # dist
-ArmorStandEdit
+ArmorStandEdit/*
+!ArmorStandEdit/data
+ArmorStandEdit/data/ase/functions
+ArmorStandEdit/data/minecraft

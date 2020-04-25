@@ -1,12 +1,7 @@
 import 'package:objd/core.dart';
 
 import '../variables.dart';
-import 'book_pages/pose.dart';
-import 'book_pages/position.dart';
-import 'book_pages/settings.dart';
-import 'book_pages/slots.dart';
-import 'book_pages/target_tools.dart';
-import 'get_selected.dart';
+import 'book.dart';
 
 class MainFile extends Widget {
   MainFile();
@@ -35,30 +30,7 @@ class MainFile extends Widget {
       ]).unless(Condition.score(Score.fromSelected("step").matchesRange(Range(from: 1)))),
 
       Execute.asat(Entity.All(scores: [Score.fromSelected("trigger", addNew: false).matchesRange(Range(from: 1))]), children: [
-        File.execute("ase_action", child: For.of([
-
-          Comment("Called from main as every player that triggers the armor stand trigger"),
-
-          Tag("ase_selected_player", entity: Entity.Selected(), value: true),
-
-          If(Score.fromSelected("trigger", addNew: false).matchesRange(Range(from: 10)), then: [
-            File.execute("get_selected", child: new GetSelected()),
-          ]),
-
-          TargetToolsFunctionality(),
-          SettingsFunctionality(),
-          PoseFunctionality(),
-          PositionFunctionality(),
-          SlotsFunctionality(),
-
-          // Pose
-
-          Tag("ase_selected_player", entity: Entity.Selected(), value: false),
-          Tag("ase_selected_stand", entity: Entity(tags: ["ase_selected_stand"]), value: false),
-
-          Score.fromSelected("trigger", addNew: false).set(0)
-
-        ]))
+        action
       ])
     ]);
   }
