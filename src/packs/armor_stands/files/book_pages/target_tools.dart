@@ -24,12 +24,12 @@ BookPage target_tools_page = BookPage([
   ])),
   
   TextComponent("     "),
-  TextComponent("[+]", color: Color.Green, hoverEvent: TextHoverEvent.text([
-    TextComponent("Enables", color: Color.Green, italic: true),
+  TextComponent("[+]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([
+    TextComponent("Enables", color: Color.DarkGreen, italic: true),
     TextComponent(" target lock", color: Color.Gray, italic: true),
   ]), clickEvent: trigger(11)),
 
-  TextComponent(" ", color: Color.Green),
+  TextComponent(" ", color: Color.DarkGreen),
   TextComponent("[-]", color: Color.Red, hoverEvent: TextHoverEvent.text([
     TextComponent("Disables", color: Color.Red, italic: true),
     TextComponent(" target lock", color: Color.Gray, italic: true),

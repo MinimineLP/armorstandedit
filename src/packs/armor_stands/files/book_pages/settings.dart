@@ -21,8 +21,8 @@ BookPage settings_page = BookPage([
     TextComponent("manipulate gravity for the armor stand", color: Color.Gray, italic: true)
   ])),
   TextComponent("|           ", color: Color.White),
-  TextComponent("[+]", color: Color.Green, hoverEvent: TextHoverEvent.text([
-    TextComponent("enable", color: Color.Green, italic: true),
+  TextComponent("[+]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([
+    TextComponent("enable", color: Color.DarkGreen, italic: true),
     TextComponent(" gravity", color: Color.Gray, italic: true)
   ]), clickEvent: TextClickEvent.run_command(Command("trigger ase_trigger set 20"))),
   TextComponent(" "),
@@ -37,8 +37,8 @@ BookPage settings_page = BookPage([
     TextComponent("make armor stand invisible", color: Color.Gray, italic: true)
   ])),
   TextComponent("|l       ", color: Color.White),
-  TextComponent("[+]", color: Color.Green, hoverEvent: TextHoverEvent.text([
-    TextComponent("enable", color: Color.Green, italic: true),
+  TextComponent("[+]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([
+    TextComponent("enable", color: Color.DarkGreen, italic: true),
     TextComponent(" invisibility", color: Color.Gray, italic: true)
   ]), clickEvent: trigger(22)),
   TextComponent(" "),
@@ -53,8 +53,8 @@ BookPage settings_page = BookPage([
     TextComponent("show name", color: Color.Gray, italic: true)
   ])),
   TextComponent("|       ", color: Color.White),
-  TextComponent("[+]", color: Color.Green, hoverEvent: TextHoverEvent.text([
-    TextComponent("enable", color: Color.Green, italic: true),
+  TextComponent("[+]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([
+    TextComponent("enable", color: Color.DarkGreen, italic: true),
     TextComponent(" display of the name", color: Color.Gray, italic: true)
   ]), clickEvent: trigger(24)),
   TextComponent(" "),
@@ -69,8 +69,8 @@ BookPage settings_page = BookPage([
     TextComponent("show arms of the armor stand", color: Color.Gray, italic: true)
   ])),
   TextComponent("|       ", color: Color.White),
-  TextComponent("[+]", color: Color.Green, hoverEvent: TextHoverEvent.text([
-    TextComponent("enable", color: Color.Green, italic: true),
+  TextComponent("[+]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([
+    TextComponent("enable", color: Color.DarkGreen, italic: true),
     TextComponent(" arms of the armor stand", color: Color.Gray, italic: true)
   ]), clickEvent: trigger(26)),
   TextComponent(" "),
@@ -85,8 +85,8 @@ BookPage settings_page = BookPage([
     TextComponent("make the armor stand small", color: Color.Gray, italic: true)
   ])),
   TextComponent("|      ", color: Color.White),
-  TextComponent("[+]", color: Color.Green, hoverEvent: TextHoverEvent.text([
-    TextComponent("enable", color: Color.Green, italic: true),
+  TextComponent("[+]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([
+    TextComponent("enable", color: Color.DarkGreen, italic: true),
     TextComponent(" the small attribute for the armor stand", color: Color.Gray, italic: true)
   ]), clickEvent: trigger(28)),
   TextComponent(" "),
@@ -101,8 +101,8 @@ BookPage settings_page = BookPage([
     TextComponent("does the armor stand has a base plate", color: Color.Gray, italic: true)
   ])),
   TextComponent("|l      ", color: Color.White),
-  TextComponent("[+]", color: Color.Green, hoverEvent: TextHoverEvent.text([
-    TextComponent("enable", color: Color.Green, italic: true),
+  TextComponent("[+]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([
+    TextComponent("enable", color: Color.DarkGreen, italic: true),
     TextComponent(" the base plate for the armor stand", color: Color.Gray, italic: true)
   ]), clickEvent: trigger(30)),
   TextComponent(" "),

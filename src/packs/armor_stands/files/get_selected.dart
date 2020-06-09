@@ -29,12 +29,6 @@ class GetSelected extends Widget {
         ])
 
       ]),
-      
-      If.not(Condition.entity(Entity(type: Entities.armor_stand, tags: ["ase_selected_stand"])), then: [
-        Title.actionbar(Entity.Selected(), show: [
-          TextComponent("No stand found", color: Color.Red)
-        ])
-      ])
     ]);
   }
 }

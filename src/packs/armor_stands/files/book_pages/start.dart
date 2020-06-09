@@ -44,6 +44,12 @@ BookPage start_page = BookPage([
     TextComponent("Usefull utilities for armor stand editing", color: Color.Gray, italic: true)
   ]), clickEvent: TextClickEvent.change_page(7)),
 
+  TextComponent("l          ", color: Color.White),
+
+  TextComponent("Repeat", color: Color.DarkBlue, hoverEvent: TextHoverEvent.text([
+    TextComponent("Repeat actions to make the work a little faster", color: Color.Gray, italic: true)
+  ]), clickEvent: TextClickEvent.change_page(8)),
+
   TextComponent("\n\n\n\n\n\n\n\n\n|      ", color: Color.White),
   TextComponent("target tools", color: Color.DarkPurple, hoverEvent: TextHoverEvent.text([
     TextComponent("Target settings for the armorstand", color: Color.Gray, italic: true)
