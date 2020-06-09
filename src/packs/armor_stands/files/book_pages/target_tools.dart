@@ -13,7 +13,7 @@ BookPage target_tools_page = BookPage([
   TextComponent("Tools for the targeting armor stands", color: Color.Gray, italic: true),
   ])),
 
-  TextComponent("\n\n"),
+  TextComponent("\n"),
   TextComponent("---------|||---------", color: Color.DarkAqua),
 
   TextComponent("Highlight Target", color: Color.DarkPurple, clickEvent: trigger(10)),
