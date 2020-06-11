@@ -43,7 +43,7 @@ BookPage slots_page = BookPage([TextComponent(" "),
 
   TextComponent("Disable Slots", color: Color.DarkPurple),
   TextComponent("|l   ", color: Color.White),
-  TextComponent("[✔]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([ 
+  TextComponent("[+]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([ 
     TextComponent("enable", color: Color.DarkGreen, italic: true), 
     TextComponent(" all slots", color: Color.Gray)
   ]), clickEvent: trigger(107)),
@@ -215,7 +215,7 @@ class SlotsFunctionality extends Widget {
 
       
 
-      Execute().If(Condition.score(Score.fromSelected("trigger", addNew: false).matchesRange(Range(from: 109, to: 144)))).asat(selected_stand).run(
+      Execute().If(Condition.score(Score.fromSelected("trigger", addNew: false).matchesRange(Range(109, 144)))).asat(selected_stand).run(
 
         File.execute( "decode_disabled_slots", child: For.of([
           
@@ -224,7 +224,7 @@ class SlotsFunctionality extends Widget {
             i=18-i;
             int n = pow(2, i + 1)-1;
             return For.of([
-              If(tmp.matchesRange(Range(from: n)), then: [
+              If(tmp.matchesRange(Range.from(n)), then: [
                 Entity.Selected().addTag(standnames[i]),
                 tmp.subtract(n)
               ]),
@@ -285,7 +285,7 @@ class SlotsFunctionality extends Widget {
       onTriggered(137, [ selected_stand.addTag("ase_boot_remove") ]),
       onTriggered(138, [ selected_stand.removeTag("ase_boot_remove") ]),
 
-      Execute().If(Condition.score(Score.fromSelected("trigger", addNew: false).matchesRange(Range(from: 109, to: 144)))).asat(selected_stand).run(
+      Execute().If(Condition.score(Score.fromSelected("trigger", addNew: false).matchesRange(Range(109, 144)))).asat(selected_stand).run(
 
         File.execute( "encode_disabled_slots", child: For.of([
 

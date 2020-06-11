@@ -10,7 +10,7 @@ class GetSelected extends Widget {
     
     return For.of([
       
-      If(Score.fromSelected("id").matchesRange(Range(from: 1)), encapsulate: false, then: [
+      If(Score.fromSelected("id").matchesRange(Range.from(1)), encapsulate: false, then: [
 
         Execute.as(Entity(type: Entities.armor_stand), children: [
           
@@ -22,7 +22,7 @@ class GetSelected extends Widget {
 
       If.not(Condition.entity(Entity(type: Entities.armor_stand, tags: ["ase_selected_stand"])), then: [
 
-        Execute.as(Entity(type: Entities.armor_stand, limit: 1, tags: [ "!ase_disabled" ], distance: Range(to: 5)).sort(Sort.nearest), children: [
+        Execute.as(Entity(type: Entities.armor_stand, limit: 1, tags: [ "!ase_disabled" ], distance: Range.to(5)).sort(Sort.nearest), children: [
           
           Tag("ase_selected_stand", entity: Entity.Selected(), value: true),
 

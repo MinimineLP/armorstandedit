@@ -491,10 +491,10 @@ class PoseFunctionality extends Widget {
       onTriggered(70, [
         Score(Entity.Selected(), "step").subtract(15),
         File.execute("do_step_checks", child: For.of([
-          If(Condition.score(Score(Entity.Selected(), "step").matchesRange(Range(from: 360))), then: <Widget>[
+          If(Condition.score(Score(Entity.Selected(), "step").matchesRange(Range.from(360))), then: <Widget>[
             Score(Entity.Selected(), "step").set(359)
           ]),
-          If(Condition.score(Score(Entity.Selected(), "step").matchesRange(Range(to: 0))), then: <Widget>[
+          If(Condition.score(Score(Entity.Selected(), "step").matchesRange(Range.to(0))), then: <Widget>[
             Score(Entity.Selected(), "step").set(1),
           ]),
           Title.actionbar(Entity.Selected(), show: [TextComponent("The step is now "), TextComponent.score(Score.fromSelected("step"))])

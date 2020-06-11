@@ -1,5 +1,6 @@
 import 'package:objd/core.dart';
 
+import 'book_pages/action_repeat.dart';
 import 'book_pages/pose.dart';
 import 'book_pages/position.dart';
 import 'book_pages/settings.dart';
@@ -9,12 +10,14 @@ import 'book_pages/target_tools.dart';
 import 'book_pages/utilities.dart';
 import 'get_selected.dart';
 
+Score trigger_score = Score.fromSelected("trigger", addNew: false);
+
 TextClickEvent trigger(int value) {
   return TextClickEvent.run_command(Command("trigger ase_trigger set $value"));
 }
 
 If onTriggered(int value, List<Widget> then, {bool encapsulate = false, String targetFileName = null, String targetFilePath = "objd"}) {
-  return If(Score.fromSelected("trigger", addNew: false).matches(value), encapsulate: encapsulate, targetFileName: targetFileName, targetFilePath: targetFilePath, then: then);
+  return If(trigger_score.matches(value), encapsulate: encapsulate, targetFileName: targetFileName, targetFilePath: targetFilePath, then: then);
 }
 
 class BookFile extends Widget {
@@ -33,6 +36,7 @@ class BookFile extends Widget {
           position_page,
           slots_page,
           utilities,
+          repeat_action_page,
           
         ], 
         author: "Minimine4", 
@@ -41,7 +45,10 @@ class BookFile extends Widget {
         name: TextComponent("Armor Stand Editor", color: Color.LightPurple, italic: false),
         nbt: {
           "datapack": "ase",
-          "clipboard": {}
+          "ase": {
+            "clipboard": {},
+            "recorded_actions": [],
+          }
         }
       ))
     ]);
@@ -55,7 +62,7 @@ File action = File.execute("action", child: For.of([
 
   Tag("ase_selected_player", entity: Entity.Selected(), value: true),
 
-  If(Score.fromSelected("trigger", addNew: false).matchesRange(Range(from: 10)), then: [
+  If(Score.fromSelected("trigger", addNew: false).matchesRange(Range.from(10)), then: [
     File.execute("get_selected", child: new GetSelected()),
   ]),
   
@@ -68,7 +75,14 @@ File action = File.execute("action", child: For.of([
       SlotsFunctionality(),
       UtilitiesFunctionality(),
     ])),
+  ], orElse: [
+    If(Condition.not(Score.fromSelected("trigger", addNew: false).matchesRange(Range(147, 152))), then: [
+      Title.actionbar(Entity.Selected(), show: [
+        TextComponent("No stand found", color: Color.Red)
+      ])
+    ])
   ]),
+  RepeatActionFunctionality(),
 
   // Pose
 

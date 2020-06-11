@@ -11,7 +11,7 @@ class LoadFile extends Widget {
     return For.of([
       Scoreboard.add("trigger", type: "trigger"),
       Scoreboard.add("step", type: "dummy"),
-      If.not(Condition.score(master.matchesRange(Range(from: 1))), then: [
+      If.not(Condition.score(master.matchesRange(Range.from(1))), then: [
         master.set(1)
       ])
     ]);

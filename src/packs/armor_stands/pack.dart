@@ -1,6 +1,7 @@
 import 'package:objd/core.dart';
 
 import 'files/book.dart';
+import 'files/book_manipulation.dart';
 import 'files/load.dart';
 import 'files/main.dart';
 
@@ -26,6 +27,8 @@ class ArmorStandPack extends Widget {
       ],
       files: [
         File( 'get_book', child: BookFile() ),
+        startBookManipulationFile,
+        stopBookManipulationFile,
       ]
     );
   }

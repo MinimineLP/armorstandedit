@@ -1,4 +1,4 @@
 name: ArmorStandEdit
 dependencies:
-  objd:
-  
+  objd: ^0.3.3-beta.5
+    

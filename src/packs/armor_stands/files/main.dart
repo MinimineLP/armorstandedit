@@ -23,13 +23,13 @@ class MainFile extends Widget {
           If.not(Condition.data(Data.get(Entity.Selected(), path: "Pose.LeftLeg")), then: [ Data.merge(Entity.Selected(), strNbt: "{Pose:{LeftLeg:[0f,0f,0f]}}") ]),
           If.not(Condition.data(Data.get(Entity.Selected(), path: "Pose.RightLeg")), then: [ Data.merge(Entity.Selected(), strNbt: "{Pose:{RightLeg:[0f,0f,0f]}}") ]),
         ],groupMin: 1, path: "", filename: "get_id", generateIDs: false)
-      ]).unless(Condition.score(Score.fromSelected("id").matchesRange(Range(from: 1)))),
+      ]).unless(Condition.score(Score.fromSelected("id").matchesRange(Range.from(1)))),
 
       Execute.asat(Entity.Player(), children: [
         Score.fromSelected("step").set(15)
-      ]).unless(Condition.score(Score.fromSelected("step").matchesRange(Range(from: 1)))),
+      ]).unless(Condition.score(Score.fromSelected("step").matchesRange(Range.from(1)))),
 
-      Execute.asat(Entity.All(scores: [Score.fromSelected("trigger", addNew: false).matchesRange(Range(from: 1))]), children: [
+      Execute.asat(Entity.All(scores: [Score.fromSelected("trigger", addNew: false).matchesRange(Range.from(1))]), children: [
         action
       ])
     ]);
