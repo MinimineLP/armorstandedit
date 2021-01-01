@@ -37,6 +37,7 @@ class BookFile extends Widget {
           slots_page,
           utilities,
           repeat_action_page,
+          repeat_action_save_page,
           
         ], 
         author: "Minimine4", 
@@ -47,7 +48,14 @@ class BookFile extends Widget {
           "datapack": "ase",
           "ase": {
             "clipboard": {},
-            "recorded_actions": [],
+            "recorded_actions": {
+              "latest": [],
+              "saves": (int amount) {
+                List l = [];
+                for(int i = 0; i < amount; i++) l.add([]);
+                return l;
+              }(56)
+            },
           }
         }
       ))

@@ -12,7 +12,7 @@ BookPage utilities = BookPage([
   ]), clickEvent: TextClickEvent.change_page(1)),
   TextComponent(" "),
   TextComponent("Utilities", color: Color.DarkRed, hoverEvent: TextHoverEvent.text([
-    TextComponent("Usefull utilities for armor-stand editing", color: Color.Gray, italic: true),
+    TextComponent("Useful utilities for armor-stand editing", color: Color.Gray, italic: true),
   ])),
   TextComponent("\n"),
   TextComponent("Copy", color: Color.DarkPurple, hoverEvent: TextHoverEvent.text([ TextComponent("Copy the armorstand data to the book", color: Color.Gray, italic: true) ] ), clickEvent: trigger(145)),

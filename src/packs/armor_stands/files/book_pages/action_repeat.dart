@@ -4,11 +4,12 @@ import '../../paths.dart';
 import '../book.dart';
 import '../book_manipulation.dart';
 
-BookPage repeat_action_page = BookPage([
+List<TextComponent> ActionRepeatBase = [
   TextComponent(" "),
   TextComponent("«", color: Color.LightPurple, hoverEvent: TextHoverEvent.text([
     TextComponent("back to main page", color: Color.Gray, italic: true),
   ]), clickEvent: TextClickEvent.change_page(1)),
+
   TextComponent(" "),
   TextComponent("Action Repeat", color: Color.DarkRed, hoverEvent: TextHoverEvent.text([
     TextComponent("Repeat actions to save some time.", color: Color.Gray, italic: true),
@@ -44,12 +45,89 @@ BookPage repeat_action_page = BookPage([
   ]), clickEvent: trigger(151)),
 
   TextComponent("l    ", color: Color.White),
-  TextComponent("save", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([
-    TextComponent("save recording", color: Color.Gray, italic: true),
-  ]), clickEvent: trigger(152)),
-  
-  
-]);
+];
+
+BookPage repeat_action_page = BookPage(
+    ActionRepeatBase.followedBy([
+
+      TextComponent("save", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([
+        TextComponent("save recording", color: Color.Gray, italic: true),
+      ]), clickEvent: TextClickEvent.change_page(9)),
+
+      TextComponent("\n\n", color: Color.White),
+      TextComponent("Execute workflow...", color: Color.Gray, italic: true),
+      TextComponent("\nl", color: Color.White),
+
+    ]).followedBy((amount) {
+      List<TextComponent> l = [];
+      amount *= 7;
+      for(int i = 1; i <= amount; i++) {
+        l.add(textComponentLoad(i));
+        if(i != amount) {
+          if (i % 7 == 0)
+            l.add(TextComponent("\nl", color: Color.White));
+          else
+            l.add(TextComponent(" ", color: Color.White));
+        }
+      }
+
+      return l;
+    } (8)).toList());
+
+BookPage repeat_action_save_page = BookPage(
+    ActionRepeatBase.followedBy([
+
+      TextComponent("save", color: Color.Gray, strikethrough: true, hoverEvent: TextHoverEvent.text([
+        TextComponent("save recording (select number to save to)", color: Color.Gray, italic: true),
+      ]), clickEvent: TextClickEvent.change_page(9)),
+      TextComponent("\n\n", color: Color.White),
+
+      TextComponent("Save workflow...", color: Color.Gray, italic: true),
+      TextComponent("\nl", color: Color.White),
+
+    ]).followedBy((amount) {
+      List<TextComponent> l = [];
+      amount *= 7;
+      for(int i = 1; i <= amount; i++) {
+        l.add(textComponentSave(i));
+        if(i != amount) {
+          if (i % 7 == 0)
+            l.add(TextComponent("\nl", color: Color.White));
+          else
+            l.add(TextComponent(" ", color: Color.White));
+        }
+      }
+
+      return l;
+    } (8)).toList());
+
+
+TextComponent textComponentLoad(int id) {
+
+  String number = leadingZero(id);
+
+  return TextComponent(number, color: Color.DarkPurple, hoverEvent: TextHoverEvent.text([
+    TextComponent("Execute saved action ${number}", color: Color.Gray, italic: true),
+  ]), clickEvent: trigger(151 + id));
+
+}
+
+TextComponent textComponentSave(int id) {
+
+  String number = leadingZero(id);
+
+  return TextComponent(number, color: Color.DarkPurple, hoverEvent: TextHoverEvent.text([
+    TextComponent("Save to action ${number}", color: Color.Gray, italic: true),
+  ]), clickEvent: trigger(207 + id));
+
+}
+
+String leadingZero(int id) {
+
+  String number = id.toString();
+  if(number.length == 1) number = '0' + number;
+  return number;
+}
 
 class RepeatActionFunctionality extends Widget {
 
@@ -76,7 +154,7 @@ class RepeatActionFunctionality extends Widget {
           Tellraw(Entity.Selected(), show: [TextComponent("Recording started", color: Color.DarkGreen)]),
           startBookManipulation,
 
-          Data.remove(bookManipulationEntity, path: PathsHandItems0.recorded_actions.toString()),
+          Data.remove(bookManipulationEntity, path: PathsHandItems0.recorded_actions.child("latest").toString()),
 
           stopBookManipulation,
 
@@ -150,9 +228,9 @@ class RepeatActionFunctionality extends Widget {
           
           
           If(Condition.entity(Entity.Selected(nbt: {"SelectedItem":{"tag": {"datapack": "ase"}}})), then: [
-            Data.modify(DataStorage("ase:repeat:tmp"), path: "contents", modify: DataModify.set(Entity.Selected(), fromPath: PathsMainhand.recorded_actions.toString())),
+            Data.modify(DataStorage("ase:repeat:tmp"), path: "contents", modify: DataModify.set(Entity.Selected(), fromPath: PathsMainhand.recorded_actions.child("latest").toString())),
           ], orElse: [
-            Data.modify(DataStorage("ase:repeat:tmp"), path: "contents", modify: DataModify.set(Entity.Selected(), fromPath: PathsOffhand.recorded_actions.toString())),
+            Data.modify(DataStorage("ase:repeat:tmp"), path: "contents", modify: DataModify.set(Entity.Selected(), fromPath: PathsOffhand.recorded_actions.child("latest").toString())),
           ]),
           
           trigger_score.setToData(Data.get(DataStorage("ase:repeat:tmp"), path: "contents[0]")),
@@ -177,25 +255,54 @@ class RepeatActionFunctionality extends Widget {
       // Stop Recording
       onTriggered(151, [
         startBookManipulation,
-        Data.remove(bookManipulationEntity, path: PathsHandItems0.recorded_actions.toString()),
+        Data.remove(bookManipulationEntity, path: PathsHandItems0.recorded_actions.child("latest").toString()),
         stopBookManipulation,
         Tellraw(Entity.Selected(), show: [TextComponent("Cleared recorded actions", color: Color.Yellow)])
       ]),
 
-      // Stop Recording
-      onTriggered(152, [
-        Tellraw(Entity.Selected(), show: [TextComponent("Error: Not implemented for now", color: Color.Red)])
+      For(to: 55, create: (int i) {
+        return onTriggered(i + 152, [
+          Tellraw(Entity.Selected(), show: [TextComponent("Executed action ${leadingZero(i + 1)}", color: Color.Green)]),
+          If(Condition.entity(Entity.Selected(nbt: {"SelectedItem":{"tag": {"datapack": "ase"}}})), then: [
+            Data.modify(DataStorage("ase:repeat:tmp"), path: "contents", modify: DataModify.set(Entity.Selected(), fromPath: PathsMainhand.recorded_actions.child("saves").child(i).toString())),
+          ]),
+          If.not(Condition.entity(Entity.Selected(nbt: {"SelectedItem":{"tag": {"datapack": "ase"}}})), then: [
+            Data.modify(DataStorage("ase:repeat:tmp"), path: "contents", modify: DataModify.set(Entity.Selected(), fromPath: PathsMainhand.recorded_actions.child("saves").child(i).toString())),
+          ]),
+        ]);
+      }),
+
+      If(trigger_score.matchesRange(new Range(152,207)), encapsulate: false, then: [
+        File.execute("objd/doloop1", create: false)
+      ]),
+
+      If(trigger_score.matchesRange(new Range(208,263)), encapsulate: false, then: [
+        startBookManipulation
+      ]),
+
+      For(to: 55, create: (int i) {
+        return onTriggered(i + 208, [
+          Tellraw(Entity.Selected(), show: [TextComponent("Saved as action ${leadingZero(i + 1)}", color: Color.Green)]),
+          Data.modify(
+              bookManipulationEntity, path: PathsHandItems0.recorded_actions.child("saves").child(i).toString(),
+              modify: DataModify.set(bookManipulationEntity, fromPath: PathsHandItems0.recorded_actions.child("latest").toString())),
+
+        ]);
+      }),
+
+      If(trigger_score.matchesRange(new Range(208,263)), encapsulate: false, then: [
+        stopBookManipulation
       ]),
       
       // Track actions
       If(Condition.and([
         active_recording,
-        Condition.not(trigger_score.matchesRange(Range(147, 152)))
+        Condition.not(trigger_score.matchesRange(Range(147, 263)))
       ]), then: [
         startBookManipulation,
 
         tmp.copyScore("tmp", score: trigger_score, datatype: "int"),
-        Data.modify(bookManipulationEntity, path: PathsHandItems0.recorded_actions.toString(), modify: DataModify.append(DataStorage("ase:tmp"), fromPath: "tmp")),
+        Data.modify(bookManipulationEntity, path: PathsHandItems0.recorded_actions.child("latest").toString(), modify: DataModify.append(DataStorage("ase:tmp"), fromPath: "tmp")),
 
         stopBookManipulation,
       ], encapsulate: false),

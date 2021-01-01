@@ -5,7 +5,8 @@ class Path {
   Path(this.name);
 
   Path child(dynamic child) {
-    if(Path is String) return new Path(this.name + "." + child);
+    if(child is num) return new Path("${this.name}[$child]");
+    if(child is String) return new Path(this.name + "." + child);
     else return new Path(this.name + "." + child.toString());
   }
   
