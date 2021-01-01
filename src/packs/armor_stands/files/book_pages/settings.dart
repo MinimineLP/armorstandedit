@@ -110,6 +110,38 @@ BookPage settings_page = BookPage([
     TextComponent("disable", color: Color.Red, italic: true),
     TextComponent(" the base plate for the armor stand", color: Color.Gray, italic: true)
   ]), clickEvent: trigger(31)),
+  TextComponent("\n"),
+
+
+  TextComponent("Vulnerable", color: Color.DarkBlue, hoverEvent: TextHoverEvent.text([
+    TextComponent("Can the armor-stand get damaged in any way", color: Color.Gray, italic: true)
+  ])),
+  TextComponent("       ", color: Color.White),
+  TextComponent("[+]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([
+    TextComponent("enable", color: Color.DarkGreen, italic: true),
+    TextComponent(" vulnerability for the armor stand", color: Color.Gray, italic: true)
+  ]), clickEvent: trigger(264)),
+  TextComponent(" "),
+  TextComponent("[-]", color: Color.Red, hoverEvent: TextHoverEvent.text([
+    TextComponent("disable", color: Color.Red, italic: true),
+    TextComponent(" vulnerability for the armor stand", color: Color.Gray, italic: true)
+  ]), clickEvent: trigger(265)),
+  TextComponent("\n"),
+
+
+  TextComponent("Marker", color: Color.DarkBlue, hoverEvent: TextHoverEvent.text([
+    TextComponent("Is the armor stand a Marker-Stand?", color: Color.Gray, italic: true)
+  ])),
+  TextComponent("l           ", color: Color.White),
+  TextComponent("[+]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([
+    TextComponent("enable", color: Color.DarkGreen, italic: true),
+    TextComponent(" marker mode for the armor stand", color: Color.Gray, italic: true)
+  ]), clickEvent: trigger(266)),
+  TextComponent(" "),
+  TextComponent("[-]", color: Color.Red, hoverEvent: TextHoverEvent.text([
+    TextComponent("disable", color: Color.Red, italic: true),
+    TextComponent(" marker mode for the armor stand", color: Color.Gray, italic: true)
+  ]), clickEvent: trigger(267)),
 ]);
 
 class SettingsFunctionality extends Widget {
@@ -162,6 +194,22 @@ class SettingsFunctionality extends Widget {
 
       onTriggered(31, [
         (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"NoBasePlate": true}))
+      ]),
+
+      onTriggered(264, [
+        (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"Invulnerable": false}))
+      ]),
+
+      onTriggered(265, [
+        (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"Invulnerable": true}))
+      ]),
+
+      onTriggered(266, [
+        (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"Marker": true}))
+      ]),
+
+      onTriggered(267, [
+        (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"Marker": false}))
       ]),
     ]);
   }
