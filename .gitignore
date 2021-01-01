@@ -1,3 +1,6 @@
+# IntelliJ
+.idea
+
 # dart
 .dart_tool
 pubspec.lock
