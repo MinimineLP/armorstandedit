@@ -42,16 +42,17 @@ BookPage slots_page = BookPage([TextComponent(" "),
   TextComponent("\n", color: Color.White),
 
   TextComponent("Disable Slots", color: Color.DarkPurple),
-  TextComponent("|l   ", color: Color.White),
+  TextComponent("|t  ", color: Color.White),
   TextComponent("[+]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([ 
     TextComponent("enable", color: Color.DarkGreen, italic: true), 
     TextComponent(" all slots", color: Color.Gray)
   ]), clickEvent: trigger(107)),
-  TextComponent(" ", color: Color.White),
-  TextComponent("[X]", color: Color.Red, hoverEvent: TextHoverEvent.text([ 
+  TextComponent("  ", color: Color.White),
+  TextComponent("[X]", color: Color.Red, hoverEvent: TextHoverEvent.text([
     TextComponent("disable", color: Color.Red, italic: true), 
     TextComponent(" all slots", color: Color.Gray)
   ]), clickEvent: trigger(108)),
+  TextComponent("\n", color: Color.White),
 
   TextComponent("Head", color: Color.DarkBlue),
   TextComponent("|      ", color: Color.White),
