@@ -12,6 +12,7 @@ class MainFile extends Widget {
     return For.of([
       Comment("Called from #minecraft:tick, main file"),
       Command("scoreboard players enable @a ase_trigger"),
+      Command("scoreboard players enable @a ase_help"),
       Command("scoreboard players enable @a ase_step"),
       
       Execute.asat(Entity(type: Entities.armor_stand), children: [
@@ -31,6 +32,17 @@ class MainFile extends Widget {
 
       Execute.asat(Entity.All(scores: [Score.fromSelected("trigger", addNew: false).matchesRange(Range.from(1))]), children: [
         action
+      ]),
+
+      Execute.asat(Entity.All(scores: [Score.fromSelected("help", addNew: false).matchesRange(Range.from(1))]), children: [
+        Group(children: [
+          Tellraw(Entity.Selected(), show: [
+            TextComponent("-" * 30 + "\n", color: Color.Yellow),
+            TextComponent("Armor Stand Editor - Help\n", color: Color.Yellow, bold: true),
+            TextComponent("Get editor by clicking here", color: Color.Aqua, underlined: true, clickEvent: trigger(1)),
+          ]),
+          Score.fromSelected("help", addNew: false).set(0)
+        ], filename: "help", generateIDs: false, groupMin: 1, path: "")
       ])
     ]);
   }

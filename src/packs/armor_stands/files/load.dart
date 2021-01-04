@@ -10,6 +10,7 @@ class LoadFile extends Widget {
   Widget generate(Context context) {
     return For.of([
       Scoreboard.add("trigger", type: "trigger"),
+      Scoreboard.add("help", type: "trigger"),
       Scoreboard.add("step", type: "dummy"),
       If.not(Condition.score(master.matchesRange(Range.from(1))), then: [
         master.set(1)

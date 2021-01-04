@@ -73,6 +73,17 @@ File action = File.execute("action", child: For.of([
   If(Score.fromSelected("trigger", addNew: false).matchesRange(Range.from(10)), then: [
     File.execute("get_selected", child: new GetSelected()),
   ]),
+
+  onTriggered(1, [
+    Tellraw(Entity.Selected(), show: [
+      TextComponent("Given ", color: Color.Gray),
+      TextComponent("\"Armor Stand Editor\"", color: Color.DarkPurple, hoverEvent: TextHoverEvent.text([
+        TextComponent("A Book that ist made for editing Armor Stands\nDatapack by Minimine")
+      ])),
+      TextComponent(" to you!", color: Color.Gray)
+    ]),
+    File.execute("get_book", create: false)
+  ]),
   
   If(Condition.entity(selected_stand), then: [
     File.execute("stand_action", child: For.of([
@@ -84,7 +95,12 @@ File action = File.execute("action", child: For.of([
       UtilitiesFunctionality(),
     ])),
   ], orElse: [
-    If(Condition.not(Score.fromSelected("trigger", addNew: false).matchesRange(Range(147, 152))), then: [
+    If(
+        Condition.and([
+          Condition.not(Score.fromSelected("trigger", addNew: false).matchesRange(Range(147, 152))),
+          Score.fromSelected("trigger", addNew: false).matchesRange(Range.from(20))
+        ]),
+        then: [
       Title.actionbar(Entity.Selected(), show: [
         TextComponent("No stand found", color: Color.Red)
       ])
