@@ -146,7 +146,7 @@ class RepeatActionFunctionality extends Widget {
       // Start Recording
       onTriggered(147, [
         
-        If(Condition.not(ase_recording), then: [
+        If.not(ase_recording, then: [
 
           // Start
           Entity.Selected().addTag("ase_recording"),
@@ -193,7 +193,7 @@ class RepeatActionFunctionality extends Widget {
             Entity.Selected().addTag("ase_recording_paused"), 
             Tellraw(Entity.Selected(), show: [TextComponent("recording paused", color: Color.Blue)])
 
-          ]),
+          ], encapsulate: false),
 
         ], orElse: [
           Tellraw(Entity.Selected(), show: [TextComponent("Error: You have no running recording", color: Color.Red)])
@@ -225,29 +225,53 @@ class RepeatActionFunctionality extends Widget {
         
         
         If.not(ase_recording, encapsulate: false, then: [
-          
-          
           If(Condition.entity(Entity.Selected(nbt: {"SelectedItem":{"tag": {"datapack": "ase"}}})), then: [
-            Data.modify(DataStorage("ase:repeat:tmp"), path: "contents", modify: DataModify.set(Entity.Selected(), fromPath: PathsMainhand.recorded_actions.child("latest").toString())),
+            Data.modify(
+                DataStorage("ase:repeat:tmp"),
+                path: "contents",
+                modify: DataModify.set(
+                    Entity.Selected(),
+                    fromPath: PathsMainhand
+                        .recorded_actions
+                        .child("latest")
+                        .toString())),
           ], orElse: [
-            Data.modify(DataStorage("ase:repeat:tmp"), path: "contents", modify: DataModify.set(Entity.Selected(), fromPath: PathsOffhand.recorded_actions.child("latest").toString())),
-          ]),
+            Data.modify(
+                DataStorage("ase:repeat:tmp"),
+                path: "contents",
+                modify: DataModify.set(
+                    Entity.Selected(),
+                    fromPath: PathsOffhand
+                        .recorded_actions
+                        .child("latest")
+                        .toString())),
+          ], encapsulate: false),
           
-          trigger_score.setToData(Data.get(DataStorage("ase:repeat:tmp"), path: "contents[0]")),
+          trigger_score.setToData(Data.get(
+              DataStorage("ase:repeat:tmp"),
+              path: "contents[0]")),
 
           Do.Until(trigger_score.matches(0), then: [
             
             Data.remove(DataStorage("ase:repeat:tmp"), path: "contents[0]"),
             File.execute("stand_action", create: false),
-            trigger_score.setToData(Data.get(DataStorage("ase:repeat:tmp"), path: "contents[0]")),
+            trigger_score.setToData(Data.get(
+                DataStorage("ase:repeat:tmp"),
+                path: "contents[0]")),
 
           ], testBefore: false),
 
-          Tellraw(Entity.Selected(), show: [TextComponent("Reexecuted recorded actions", color: Color.Blue)])
+          Tellraw(Entity.Selected(), show: [
+            TextComponent("Reexecuted recorded actions", color: Color.Blue)
+          ])
 
         ], orElse: [
 
-          Tellraw(Entity.Selected(), show: [TextComponent("Error: You have a recording running. Can't replay while recording", color: Color.Red)])
+          Tellraw(Entity.Selected(), show: [
+            TextComponent(
+                "Error: You have a recording running. Can't replay while recording",
+                color: Color.Red)
+          ])
 
         ], targetFileName: null, targetFilePath: null),
       ]),
