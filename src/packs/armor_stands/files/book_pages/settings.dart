@@ -10,7 +10,7 @@ BookPage settings_page = BookPage([
   ]), clickEvent: TextClickEvent.change_page(1)),
   TextComponent(" "),
   TextComponent("Settings", color: Color.DarkRed, hoverEvent: TextHoverEvent.text([
-    TextComponent("General settings of the armor stand", color: Color.Gray, italic: true),
+    TextComponent("General settings", color: Color.Gray, italic: true),
   ])),
 
   TextComponent("\n"),
@@ -18,7 +18,7 @@ BookPage settings_page = BookPage([
 
 
   TextComponent("Gravity", color: Color.DarkBlue, hoverEvent: TextHoverEvent.text([
-    TextComponent("manipulate gravity for the armor stand", color: Color.Gray, italic: true)
+    TextComponent("Manipulate gravity", color: Color.Gray, italic: true)
   ])),
   TextComponent("|           ", color: Color.White),
   TextComponent("[+]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([
@@ -33,18 +33,18 @@ BookPage settings_page = BookPage([
   TextComponent("\n"),
 
 
-  TextComponent("Invisibility", color: Color.DarkBlue, hoverEvent: TextHoverEvent.text([
-    TextComponent("make armor stand invisible", color: Color.Gray, italic: true)
+  TextComponent("Visibility", color: Color.DarkBlue, hoverEvent: TextHoverEvent.text([
+    TextComponent("make the stand invisible", color: Color.Gray, italic: true)
   ])),
-  TextComponent("|l       ", color: Color.White),
+  TextComponent("l          ", color: Color.White),
   TextComponent("[+]", color: Color.DarkGreen, hoverEvent: TextHoverEvent.text([
     TextComponent("enable", color: Color.DarkGreen, italic: true),
-    TextComponent(" invisibility", color: Color.Gray, italic: true)
+    TextComponent(" visibility", color: Color.Gray, italic: true)
   ]), clickEvent: trigger(22)),
   TextComponent(" "),
   TextComponent("[-]", color: Color.Red, hoverEvent: TextHoverEvent.text([
     TextComponent("disable", color: Color.Red, italic: true),
-    TextComponent(" invisibility", color: Color.Gray, italic: true)
+    TextComponent(" visibility", color: Color.Gray, italic: true)
   ]), clickEvent: trigger(23)),
   TextComponent("\n"),
 
@@ -157,11 +157,11 @@ class SettingsFunctionality extends Widget {
       ]),
 
       onTriggered(22, [
-        (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"Invisible": true}))
+        (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"Invisible": false}))
       ]),
 
       onTriggered(23, [
-        (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"Invisible": false}))
+        (selected_stand.as() as Execute).run(Data.merge(Entity.Selected(), nbt: {"Invisible": true}))
       ]),
 
       onTriggered(24, [
