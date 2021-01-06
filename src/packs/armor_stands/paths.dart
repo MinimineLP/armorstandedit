@@ -1,3 +1,6 @@
+final String data_storage_repeat_tmp = "ase:repeat.tmp";
+final String data_storage_tmp = "ase:tmp";
+
 class Path {
 
   final String name;

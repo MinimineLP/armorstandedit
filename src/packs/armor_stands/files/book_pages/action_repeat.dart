@@ -139,13 +139,13 @@ class RepeatActionFunctionality extends Widget {
 
     Condition active_recording = Condition.entity(Entity.Selected(tags:  ["ase_recording", "!ase_recording_paused"]));
 
-    Storage tmp = Storage("ase:tmp", autoNamespace: false);
+    Storage tmp = Storage(data_storage_tmp, autoNamespace: false);
 
     return For.of([
 
       // Start Recording
       onTriggered(147, [
-        
+
         If.not(ase_recording, then: [
 
           // Start
@@ -180,17 +180,17 @@ class RepeatActionFunctionality extends Widget {
       onTriggered(148, [
 
         If(ase_recording, then: [
-          
+
           If(ase_recording_paused, then: [
 
             // Continue
-            Entity.Selected().removeTag("ase_recording_paused"), 
+            Entity.Selected().removeTag("ase_recording_paused"),
             Tellraw(Entity.Selected(), show: [TextComponent("recording continued", color: Color.Blue)])
 
           ], orElse: [
 
             // Pause
-            Entity.Selected().addTag("ase_recording_paused"), 
+            Entity.Selected().addTag("ase_recording_paused"),
             Tellraw(Entity.Selected(), show: [TextComponent("recording paused", color: Color.Blue)])
 
           ], encapsulate: false),
@@ -203,8 +203,8 @@ class RepeatActionFunctionality extends Widget {
 
       // Stop Recording
       onTriggered(149, [
-        
-        
+
+
         If(ase_recording, encapsulate: false, then: [
 
           // Stop Recording
@@ -222,12 +222,12 @@ class RepeatActionFunctionality extends Widget {
 
       // Stop Recording
       onTriggered(150, [
-        
-        
+
+
         If.not(ase_recording, encapsulate: false, then: [
           If(Condition.entity(Entity.Selected(nbt: {"SelectedItem":{"tag": {"datapack": "ase"}}})), then: [
             Data.modify(
-                DataStorage("ase:repeat:tmp"),
+                DataStorage(data_storage_repeat_tmp),
                 path: "contents",
                 modify: DataModify.set(
                     Entity.Selected(),
@@ -237,7 +237,7 @@ class RepeatActionFunctionality extends Widget {
                         .toString())),
           ], orElse: [
             Data.modify(
-                DataStorage("ase:repeat:tmp"),
+                DataStorage(data_storage_repeat_tmp),
                 path: "contents",
                 modify: DataModify.set(
                     Entity.Selected(),
@@ -246,17 +246,17 @@ class RepeatActionFunctionality extends Widget {
                         .child("latest")
                         .toString())),
           ], encapsulate: false),
-          
+
           trigger_score.setToData(Data.get(
-              DataStorage("ase:repeat:tmp"),
+              DataStorage(data_storage_repeat_tmp),
               path: "contents[0]")),
 
           Do.Until(trigger_score.matches(0), then: [
-            
-            Data.remove(DataStorage("ase:repeat:tmp"), path: "contents[0]"),
+
+            Data.remove(DataStorage(data_storage_repeat_tmp), path: "contents[0]"),
             File.execute("stand_action", create: false),
             trigger_score.setToData(Data.get(
-                DataStorage("ase:repeat:tmp"),
+                DataStorage(data_storage_repeat_tmp),
                 path: "contents[0]")),
 
           ], testBefore: false),
@@ -288,10 +288,10 @@ class RepeatActionFunctionality extends Widget {
         return onTriggered(i + 152, [
           Tellraw(Entity.Selected(), show: [TextComponent("Executed action ${leadingZero(i + 1)}", color: Color.Green)]),
           If(Condition.entity(Entity.Selected(nbt: {"SelectedItem":{"tag": {"datapack": "ase"}}})), then: [
-            Data.modify(DataStorage("ase:repeat:tmp"), path: "contents", modify: DataModify.set(Entity.Selected(), fromPath: PathsMainhand.recorded_actions.child("saves").child(i).toString())),
+            Data.modify(DataStorage(data_storage_repeat_tmp), path: "contents", modify: DataModify.set(Entity.Selected(), fromPath: PathsMainhand.recorded_actions.child("saves").child(i).toString())),
           ]),
           If.not(Condition.entity(Entity.Selected(nbt: {"SelectedItem":{"tag": {"datapack": "ase"}}})), then: [
-            Data.modify(DataStorage("ase:repeat:tmp"), path: "contents", modify: DataModify.set(Entity.Selected(), fromPath: PathsMainhand.recorded_actions.child("saves").child(i).toString())),
+            Data.modify(DataStorage(data_storage_repeat_tmp), path: "contents", modify: DataModify.set(Entity.Selected(), fromPath: PathsMainhand.recorded_actions.child("saves").child(i).toString())),
           ]),
         ]);
       }),
@@ -317,7 +317,7 @@ class RepeatActionFunctionality extends Widget {
       If(trigger_score.matchesRange(new Range(208,263)), encapsulate: false, then: [
         stopBookManipulation
       ]),
-      
+
       // Track actions
       If(Condition.and([
         active_recording,
@@ -326,7 +326,7 @@ class RepeatActionFunctionality extends Widget {
         startBookManipulation,
 
         tmp.copyScore("tmp", score: trigger_score, datatype: "int"),
-        Data.modify(bookManipulationEntity, path: PathsHandItems0.recorded_actions.child("latest").toString(), modify: DataModify.append(DataStorage("ase:tmp"), fromPath: "tmp")),
+        Data.modify(bookManipulationEntity, path: PathsHandItems0.recorded_actions.child("latest").toString(), modify: DataModify.append(DataStorage(data_storage_tmp), fromPath: "tmp")),
 
         stopBookManipulation,
       ], encapsulate: false),
